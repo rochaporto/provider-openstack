@@ -22,16 +22,16 @@ import (
 
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 
-	"github.com/crossplane/provider-template/internal/controller/config"
-	"github.com/crossplane/provider-template/internal/controller/mytype"
+	"github.com/crossplane/provider-openstack/internal/controller/coecluster"
+	"github.com/crossplane/provider-openstack/internal/controller/config"
 )
 
-// Setup creates all Template controllers with the supplied logger and adds them to
+// Setup creates all OpenStack controllers with the supplied logger and adds them to
 // the supplied manager.
 func Setup(mgr ctrl.Manager, l logging.Logger, wl workqueue.RateLimiter) error {
 	for _, setup := range []func(ctrl.Manager, logging.Logger, workqueue.RateLimiter) error{
 		config.Setup,
-		mytype.Setup,
+		coecluster.Setup,
 	} {
 		if err := setup(mgr, l, wl); err != nil {
 			return err

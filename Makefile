@@ -3,7 +3,7 @@ SHELL := /bin/bash
 
 # Options
 ORG_NAME=crossplane
-PROVIDER_NAME=provider-template
+PROVIDER_NAME=provider-openstack
 
 build: generate test
 	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o ./bin/$(PROVIDER_NAME)-controller cmd/provider/main.go
@@ -21,7 +21,7 @@ run: generate
 all: image image-push
 
 generate:
-	go generate ./...
+	go generate -v ./...
 	@find package/crds -name *.yaml -exec sed -i.sed -e '1,2d' {} \;
 	@find package/crds -name *.yaml.sed -delete
 

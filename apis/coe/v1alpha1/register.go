@@ -25,7 +25,7 @@ import (
 
 // Package type metadata.
 const (
-	Group   = "sample.template.crossplane.io"
+	Group   = "coe.openstack.crossplane.io"
 	Version = "v1alpha1"
 )
 
@@ -37,14 +37,14 @@ var (
 	SchemeBuilder = &scheme.Builder{GroupVersion: SchemeGroupVersion}
 )
 
-// MyType type metadata.
+// COECluster type metadata.
 var (
-	MyTypeKind             = reflect.TypeOf(MyType{}).Name()
-	MyTypeGroupKind        = schema.GroupKind{Group: Group, Kind: MyTypeKind}.String()
-	MyTypeKindAPIVersion   = MyTypeKind + "." + SchemeGroupVersion.String()
-	MyTypeGroupVersionKind = SchemeGroupVersion.WithKind(MyTypeKind)
+	COEClusterKind             = reflect.TypeOf(COECluster{}).Name()
+	COEClusterGroupKind        = schema.GroupKind{Group: Group, Kind: COEClusterKind}.String()
+	COEClusterKindAPIVersion   = COEClusterKind + "." + SchemeGroupVersion.String()
+	COEClusterGroupVersionKind = SchemeGroupVersion.WithKind(COEClusterKind)
 )
 
 func init() {
-	SchemeBuilder.Register(&MyType{}, &MyTypeList{})
+	SchemeBuilder.Register(&COECluster{}, &COEClusterList{})
 }

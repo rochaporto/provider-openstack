@@ -1,6 +1,8 @@
-module github.com/crossplane/provider-template
+module github.com/crossplane/provider-openstack
 
 go 1.13
+
+replace github.com/crossplane/provider-openstack => /home/ricardo/ws/provider-openstack
 
 require (
 	github.com/crossplane/crossplane-runtime v0.13.0
